@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-// MARK: CaaaaaaaalculatorButton
-enum CaaaaaaaalculatorButton: String {
+// MARK: CalculatorButton
+enum CalculatorButton: String {
     case zero, one, two, three, four, five, six, seven, eight, nine
     case equals, plus, minus, multiply, divide
     case decimal
@@ -29,7 +29,7 @@ enum CaaaaaaaalculatorButton: String {
         case .equals: return "="
         case .plus: return "+"
         case .minus: return "-"
-        case .multiply: return "x"
+        case .multiply: return "*"
         case .divide: return "/"
         case .decimal: return "."
         case .plusminus: return "+/-"
@@ -54,7 +54,10 @@ enum CaaaaaaaalculatorButton: String {
 
 // MARK: ContentView
 struct ContentView: View {
-    let buttons: [String: [CaaaaaaaalculatorButton]] = [
+
+    @EnvironmentObject var env: CalculatorDisplay
+
+    let buttons: [String: [CalculatorButton]] = [
         "1": [.AC, .plusminus, .percent, .divide],
         "2": [.seven, .eight, .nine, .multiply],
         "3": [.four, .five, .six, .minus],
@@ -69,16 +72,14 @@ struct ContentView: View {
             VStack(spacing: 15) {
                 HStack {
                     Spacer()
-                    Text("2+2=4             ")
-                        .font(.system(size: 90))
+                    Text(env.result)
+                        .font(.system(size: 150))
                         .fontWeight(.heavy)
                         .foregroundColor(Color.black)
                         .multilineTextAlignment(.center)
                         .lineLimit(nil)
                         .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                         .frame(height: 250.0)
-                        .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color.gray/*@END_MENU_TOKEN@*/)
-                        .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/, width: /*@START_MENU_TOKEN@*/9/*@END_MENU_TOKEN@*/)
                 }.padding()
                 ForEach(buttons.keys.sorted(by: <), id: \.self) { key in
 
@@ -97,18 +98,20 @@ struct ContentView: View {
 // MARK: ContentView_Previews
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(CalculatorDisplay())
 
     }
 }
 
 struct CalculatorButtonView: View {
 
-    var button: CaaaaaaaalculatorButton
+    var button: CalculatorButton
+
+    @EnvironmentObject var env: CalculatorDisplay
 
     var body: some View {
         Button(action: {
-
+            self.env.inputAction(calculatorButton: self.button)
         }, label: {
                 Text(button.tittle)
                     .font(.system(size: 40))
@@ -119,7 +122,7 @@ struct CalculatorButtonView: View {
         }) 
     }
 
-    private func buttonWidth(button: CaaaaaaaalculatorButton) -> CGFloat {
+    private func buttonWidth(button: CalculatorButton) -> CGFloat {
         if button == .zero {
             return (UIScreen.main.bounds.width - 4 * 12) / 4 * 2
         }
