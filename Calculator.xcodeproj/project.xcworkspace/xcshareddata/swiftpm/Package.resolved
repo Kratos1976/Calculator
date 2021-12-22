@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "MathKit",
+        "repositoryURL": "https://github.com/liam923/MathKit.git",
+        "state": {
+          "branch": null,
+          "revision": "9d76130a0cc812e861b84925d7b2aeaa67d99217",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "swift-numerics",
+        "repositoryURL": "https://github.com/apple/swift-numerics.git",
+        "state": {
+          "branch": null,
+          "revision": "0a5bc04095a675662cf24757cc0640aa2204253b",
+          "version": "1.0.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

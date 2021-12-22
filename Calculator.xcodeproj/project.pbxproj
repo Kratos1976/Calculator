@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,9 @@
 		849589BB276BA13A00ACBF92 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849589BA276BA13A00ACBF92 /* ContentView.swift */; };
 		849589BD276BA13B00ACBF92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849589BC276BA13B00ACBF92 /* Assets.xcassets */; };
 		849589C0276BA13B00ACBF92 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849589BF276BA13B00ACBF92 /* Preview Assets.xcassets */; };
+		D3F077CD2772936700B6BD00 /* CalculatorDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F077CC2772936700B6BD00 /* CalculatorDisplay.swift */; };
+		D3F077D027729CD100B6BD00 /* Numerics in Frameworks */ = {isa = PBXBuildFile; productRef = D3F077CF27729CD100B6BD00 /* Numerics */; };
+		D3F077D327729F0B00B6BD00 /* MathKit in Frameworks */ = {isa = PBXBuildFile; productRef = D3F077D227729F0B00B6BD00 /* MathKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,7 @@
 		849589BC276BA13B00ACBF92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		849589BF276BA13B00ACBF92 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		849589C1276BA13B00ACBF92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3F077CC2772936700B6BD00 /* CalculatorDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorDisplay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +31,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3F077D027729CD100B6BD00 /* Numerics in Frameworks */,
+				D3F077D327729F0B00B6BD00 /* MathKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +60,7 @@
 			children = (
 				849589B8276BA13A00ACBF92 /* CalculatorApp.swift */,
 				849589BA276BA13A00ACBF92 /* ContentView.swift */,
+				D3F077CC2772936700B6BD00 /* CalculatorDisplay.swift */,
 				849589BC276BA13B00ACBF92 /* Assets.xcassets */,
 				849589C1276BA13B00ACBF92 /* Info.plist */,
 				849589BE276BA13B00ACBF92 /* Preview Content */,
@@ -85,6 +92,10 @@
 			dependencies = (
 			);
 			name = Calculator;
+			packageProductDependencies = (
+				D3F077CF27729CD100B6BD00 /* Numerics */,
+				D3F077D227729F0B00B6BD00 /* MathKit */,
+			);
 			productName = Calculator;
 			productReference = 849589B5276BA13A00ACBF92 /* Calculator.app */;
 			productType = "com.apple.product-type.application";
@@ -112,6 +123,10 @@
 				Base,
 			);
 			mainGroup = 849589AC276BA13A00ACBF92;
+			packageReferences = (
+				D3F077CE27729CD000B6BD00 /* XCRemoteSwiftPackageReference "swift-numerics" */,
+				D3F077D127729F0B00B6BD00 /* XCRemoteSwiftPackageReference "MathKit" */,
+			);
 			productRefGroup = 849589B6276BA13A00ACBF92 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -140,6 +155,7 @@
 			files = (
 				849589BB276BA13A00ACBF92 /* ContentView.swift in Sources */,
 				849589B9276BA13A00ACBF92 /* CalculatorApp.swift in Sources */,
+				D3F077CD2772936700B6BD00 /* CalculatorDisplay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,6 +342,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D3F077CE27729CD000B6BD00 /* XCRemoteSwiftPackageReference "swift-numerics" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-numerics.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		D3F077D127729F0B00B6BD00 /* XCRemoteSwiftPackageReference "MathKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/liam923/MathKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D3F077CF27729CD100B6BD00 /* Numerics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3F077CE27729CD000B6BD00 /* XCRemoteSwiftPackageReference "swift-numerics" */;
+			productName = Numerics;
+		};
+		D3F077D227729F0B00B6BD00 /* MathKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3F077D127729F0B00B6BD00 /* XCRemoteSwiftPackageReference "MathKit" */;
+			productName = MathKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 849589AD276BA13A00ACBF92 /* Project object */;
 }

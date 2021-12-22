@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-// MARK: CalculatorButton
-enum CalaculatorButton: String {
+// MARK: CaaaaaaaalculatorButton
+enum CaaaaaaaalculatorButton: String {
     case zero, one, two, three, four, five, six, seven, eight, nine
     case equals, plus, minus, multiply, divide
     case decimal
@@ -54,7 +54,7 @@ enum CalaculatorButton: String {
 
 // MARK: ContentView
 struct ContentView: View {
-    let buttons: [String: [CalaculatorButton]] = [
+    let buttons: [String: [CaaaaaaaalculatorButton]] = [
         "1": [.AC, .plusminus, .percent, .divide],
         "2": [.seven, .eight, .nine, .multiply],
         "3": [.four, .five, .six, .minus],
@@ -104,7 +104,7 @@ struct ContentView_Previews: PreviewProvider {
 
 struct CalculatorButtonView: View {
 
-    var button: CalaculatorButton
+    var button: CaaaaaaaalculatorButton
 
     var body: some View {
         Button(action: {
@@ -116,12 +116,14 @@ struct CalculatorButtonView: View {
                     .foregroundColor(Color.white)
                     .bold().padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
                     .frame(width: self.buttonWidth(button: button), height: /*@START_MENU_TOKEN@*/94.0/*@END_MENU_TOKEN@*/).background(button.backgroundColor).cornerRadius(/*@START_MENU_TOKEN@*/50.0/*@END_MENU_TOKEN@*/)
-            })
-    }
-    private func buttonWidth(button: CalaculatorButton) -> CGFloat { if button == .zero {
-        return (UIScreen.main.bounds.width - 4 * 12) / 4 * 2
+        }) 
     }
 
-    return (UIScreen.main.bounds.width - 5 * 12) / 4
+    private func buttonWidth(button: CaaaaaaaalculatorButton) -> CGFloat {
+        if button == .zero {
+            return (UIScreen.main.bounds.width - 4 * 12) / 4 * 2
+        }
+
+        return (UIScreen.main.bounds.width - 5 * 12) / 4
     }
 }
